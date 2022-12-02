@@ -143,10 +143,7 @@ jobs:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
-
-          # If the commit is in the main branch and this does not run on a PR, release
-          release: ${{ github.event_name == 'push' && needs.get_metadata.outputs.branch == 'main' }}
-
+          
           # Sometimes the build may fail due to a connection problem with Apple, GitHub, etc. servers.
           # This option will restart the build as many attempts as possible
           max_attempts: 3
